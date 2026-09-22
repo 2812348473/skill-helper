@@ -40,6 +40,12 @@ agnes install "git:https://github.com/2812348473/skill-helper.git#<40位commit>"
 4. 检查安装预览，按现有流程确认、信任并启用插件。安装插件本身默认不会自动信任或启用。
 5. 在新一轮对话中提出导入或创建需求。安装每个 Skill 仍需要 AGH 的审批。
 
+首版已通过 AGH 远程 Git 包预览的固定来源，可直接复制：
+
+```text
+git:https://github.com/2812348473/skill-helper.git#14522a63c321c48549bd8533702d80d541ca893f
+```
+
 本插件不绕过宿主的进程内第三方插件信任规则。停用/卸载插件会移除四个助手工具；此前安装的 Skill 由 AGH 管理，不会随插件卸载而被删除。
 
 ## 使用示例

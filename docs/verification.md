@@ -16,6 +16,8 @@
 2. `pnpm exec tsx <plugin>/test/agh-compat.mjs <AGH>`：通过。真实 AGH checkToolDef 和 TypeBox 接受四个工具；额外权限字段被拒绝；真实第三方插件行挂载、宿主身份注入和卸载移除工具通过；真实包管理预览无阻塞。
 3. 同一兼容脚本调用真实 Skill 安装器：Windows 临时工作区 prepare → commit → status 达到 ready，文件内容一致，读入与安装两次授权被调用；拒绝读取后停止。**审批回答与 resource service 是测试替身，不等于真实 UI 审批或资源服务端到端通过。**
 4. `--network`：通过 AGH 真实 createPublicFetch 读取固定版官方 skill-creator；通过同一接口从 anthropics/skills 的 algorithmic-art 下载 4 个文件，均固定在 `34040c9c568585f6929bedeaad110ad08f079624`。
+5. `npm run check`、`git diff --cached --check`：通过。代码提交 `14522a63c321c48549bd8533702d80d541ca893f` 推送 origin/main 后，用 `git ls-remote` 核对远端一致。
+6. 兼容脚本加 `--package-source=git:https://github.com/2812348473/skill-helper.git#14522a63c321c48549bd8533702d80d541ca893f`：真实 AGH 包管理器从公开仓库下载、识别包名和贡献，预览无 blockers。插件行和安装器检查也通过。
 
 开发中首次语法检查发现入口缺少闭合括号，已修正；之后测试和真实 AGH 模块加载通过。未隐藏此过程，也未把首次检查当成功。
 
